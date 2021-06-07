@@ -14,7 +14,7 @@ const render = require("./lib/htmlRenderer");
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
-let employees =  []
+const employees =  []
 inquirer
   .prompt([
     {
@@ -52,6 +52,10 @@ inquirer
           ])
           .then(answer => {
             employees.push(new Engineer(answers.name, answers.id, answers.email, answer.github))
+            fs.writeFile(outputPath, render(employees), err => {
+              if (err) { console.log(err) }
+              console.log('File successfully created!')
+            })
           })
           .catch (err => console.log(err))
         break
@@ -65,7 +69,11 @@ inquirer
             }
           ])
           .then(answer => {
-            employees.push(new Engineer(answers.name, answers.id, answers.email, answer.school))
+            employees.push(new Intern(answers.name, answers.id, answers.email, answer.school))
+            fs.writeFile(outputPath, render(employees), err => {
+              if (err) { console.log(err) }
+              console.log('File successfully created!')
+            })
           })
           .catch(err => console.log(err))
         break
@@ -79,7 +87,11 @@ inquirer
             }
           ])
           .then(answer => {
-            employees.push(new Engineer(answers.name, answers.id, answers.email, answer.office))
+            employees.push(new Manager(answers.name, answers.id, answers.email, answer.office))
+            fs.writeFile(outputPath, render(employees), err => {
+              if (err) { console.log(err) }
+              console.log('File successfully created!')
+            })
           })
           .catch(err => console.log(err))
         break
@@ -90,7 +102,7 @@ inquirer
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
 // generate and return a block of HTML including templated divs for each employee!
-const HTML = render(employees)
+// const HTML = render(employees)
 
 // After you have your html, you're now ready to create an HTML file using the HTML
 // returned from the `render` function. Now write it to a file named `team.html` in the
@@ -106,21 +118,21 @@ const HTML = render(employees)
 //   console.log(err)
 // }
 
-fs.access(OUTPUT_DIR, err => {
-  if (err) {
-    console.log('Directory does not exist.')
-    fs.mkdir(OUTPUT_DIR, err => {
-      if (err) {console.log(err)}
-      console.log('Directory successfully created!')
-    })
-  }
-  else {console.log('Directory already exists.')}
-})
+// fs.access(OUTPUT_DIR, err => {
+//   if (err) {
+//     console.log('Directory does not exist.')
+//     fs.mkdir(OUTPUT_DIR, err => {
+//       if (err) {console.log(err)}
+//       console.log('Directory successfully created!')
+//     })
+//   }
+//   else {console.log('Directory already exists.')}
+// })
 
-fs.writeFile(outputPath, HTML, err => {
-  if (err) { console.log(err) }
-  console.log('File successfully created!')
-})
+// fs.writeFile(outputPath, HTML, err => {
+//   if (err) { console.log(err) }
+//   console.log('File successfully created!')
+// })
 
 // HINT: each employee type (manager, engineer, or intern) has slightly different
 // information; write your code to ask different questions via inquirer depending on
