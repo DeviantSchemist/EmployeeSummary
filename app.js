@@ -63,6 +63,9 @@ inquirer
                 createEmployees()
               }
               else {
+                if (!fs.existsSync(OUTPUT_DIR)) {
+                  fs.mkdirSync(OUTPUT_DIR)
+                }
                 fs.writeFile(outputPath, render(employees), err => {
                   if (err) { console.log(err) }
                   console.log('File successfully created!')
@@ -93,6 +96,9 @@ inquirer
                   createEmployees()
                 }
                 else {
+                  if (!fs.existsSync(OUTPUT_DIR)) {
+                    fs.mkdirSync(OUTPUT_DIR)
+                  }
                   fs.writeFile(outputPath, render(employees), err => {
                     if (err) { console.log(err) }
                     console.log('File successfully created!')
@@ -123,6 +129,9 @@ inquirer
                   createEmployees()
                 }
                 else {
+                  if (!fs.existsSync(OUTPUT_DIR)) {
+                    fs.mkdirSync(OUTPUT_DIR)
+                  }
                   fs.writeFile(outputPath, render(employees), err => {
                     if (err) { console.log(err) }
                     console.log('File successfully created!')
