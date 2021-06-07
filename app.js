@@ -65,6 +65,7 @@ inquirer
               else {
                 if (!fs.existsSync(OUTPUT_DIR)) {
                   fs.mkdirSync(OUTPUT_DIR)
+                  console.log('Output directory did not exist, just created.')
                 }
                 fs.writeFile(outputPath, render(employees), err => {
                   if (err) { console.log(err) }
@@ -98,6 +99,7 @@ inquirer
                 else {
                   if (!fs.existsSync(OUTPUT_DIR)) {
                     fs.mkdirSync(OUTPUT_DIR)
+                    console.log('Output directory did not exist, just created.')
                   }
                   fs.writeFile(outputPath, render(employees), err => {
                     if (err) { console.log(err) }
@@ -131,6 +133,7 @@ inquirer
                 else {
                   if (!fs.existsSync(OUTPUT_DIR)) {
                     fs.mkdirSync(OUTPUT_DIR)
+                    console.log('Output directory did not exist, just created.')
                   }
                   fs.writeFile(outputPath, render(employees), err => {
                     if (err) { console.log(err) }
