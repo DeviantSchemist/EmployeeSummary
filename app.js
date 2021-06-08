@@ -14,7 +14,11 @@ const render = require("./lib/htmlRenderer");
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
+
+// employee array that holds each employee
 const employees =  []
+
+// put inquirer prompt in a function in order to call it later
 const createEmployees = () => {
 inquirer
   .prompt([
@@ -149,6 +153,7 @@ inquirer
   .catch(err => console.log(err))
 }
 
+// calls the inquirer function to start the program
 createEmployees()
 
 // After the user has input all employees desired, call the `render` function (required
