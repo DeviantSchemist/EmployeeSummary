@@ -35,7 +35,8 @@ inquirer
     {
       type: 'input',
       name: 'email',
-      message: 'Enter email: '
+      message: 'Enter email: ',
+      validate: input => emailValidator.validate(input)
     },
     {
       type: 'rawlist',
