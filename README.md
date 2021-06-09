@@ -13,5 +13,5 @@ Run the command "node app.js" in your preferred IDE/text editor that has node.js
 ## Screenshot
 <img src="./EmployeeSummary.png" alt="Screenshot" />
 
-* Video: https://youtu.be/WgzkPMb2dNk
+* Demo: https://youtu.be/WgzkPMb2dNk
 * Repo Link: https://github.com/DeviantSchemist/EmployeeSummary
